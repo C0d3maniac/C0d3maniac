@@ -1,0 +1,61 @@
+<html lang="en-US"><head></head><body>
+
+<iframe id="iframehtml5" width="100%" height="100%" src="https://kdata1.com/2021/11/Leftovers/" frameborder="0" border="0" scrolling="no" class="iframe-default " allowfullscreen=""></iframe>
+
+
+<script type="text/javascript" src="https://kdata1.com/c64c52920a621bbecafb9029dcef62b0ecaa8c56d39087cbf5f78450e83a174a/inject.js?id=dcbf8f5f-1d3f-4bfa-a61b-e06b71ccfec3"></script><div id="gameContainer" style="width: 675px; height: 379px; top: 84px; left: 0px;">
+		<canvas id="unity-canvas" data-pixel-art="" width="1013" height="569" style="cursor: default; width: 675px; height: 379px;"></canvas>
+		<script src="Build/Leftovers_WebGL.loader.js"></script>
+		<script>
+			createUnityInstance(document.querySelector("#unity-canvas"), {
+				dataUrl: "Build/Leftovers_WebGL.data",
+				frameworkUrl: "Build/Leftovers_WebGL.framework.js",
+				codeUrl: "Build/Leftovers_WebGL.wasm",
+				streamingAssetsUrl: "StreamingAssets",
+				companyName: "RealmpactAndSkekarin",
+				productName: "Leftovers",
+				productVersion: "1.1",
+			}).then(function (instance) {
+				var canvas = instance.Module.canvas;
+				var container = canvas.parentElement;
+				function onResize() {
+					var w;
+					var h;
+
+					if (scaleToFit) {
+						w = window.innerWidth;
+						h = window.innerHeight;
+
+						var r = 630 / 1120;
+
+						if (w * r > window.innerHeight) {
+							w = Math.min(w, Math.ceil(h / r));
+						}
+						h = Math.floor(w * r);
+					} else {
+						w = 1120;
+						h = 630;
+					}
+
+					container.style.width = canvas.style.width = w + "px";
+					container.style.height = canvas.style.height = h + "px";
+					container.style.top = Math.floor((window.innerHeight - h) / 2) + "px";
+					container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
+				}
+
+				var scaleToFit;
+				try {
+					scaleToFit = !!JSON.parse("");
+				} catch (e) {
+					scaleToFit = true;
+				}
+				window.addEventListener('resize', onResize);
+				onResize();
+			});
+		</script>
+	</div>
+    
+    
+    <script src="Build/Leftovers_WebGL.loader.js"></script>
+    
+</body></html>
